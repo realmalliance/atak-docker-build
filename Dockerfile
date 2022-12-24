@@ -74,8 +74,8 @@ ADD local.properties atak
 
 RUN scripts/prebuild.sh
 
-RUN keytool -keystore my-debug-key.keystore -genkey -noprompt -keyalg RSA -alias debug -dname "CN=Unknown, OU=Unknown, O=\"MyOrganization\", L=MyCity, ST=MyState, C=US" -storepass atakatak -keypass atakatak \
-    && keytool -keystore my-release-key.keystore -genkey -noprompt -keyalg RSA -alias release -dname "CN=Unknown, OU=Unknown, O=\"MyOrganization\", L=MyCity, ST=MyState, C=US" -storepass atakatak -keypass atakatak \
+RUN keytool -keystore my-debug-key.keystore -genkey -noprompt -keyalg RSA -alias debug -dname "CN=Unknown, OU=Unknown, O=MyOrganization, L=MyCity, ST=MyState, C=US" -storepass atakatak -keypass atakatak \
+    && keytool -keystore my-release-key.keystore -genkey -noprompt -keyalg RSA -alias release -dname "CN=Unknown, OU=Unknown, O=MyOrganization, L=MyCity, ST=MyState, C=US" -storepass atakatak -keypass atakatak \
     && mkdir -p atak/ATAK/app \
     && cp my-debug-key.keystore my-release-key.keystore atak/ATAK/app
 

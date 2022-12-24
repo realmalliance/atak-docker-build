@@ -41,7 +41,8 @@ RUN update-alternatives --set java $JAVA_HOME/bin/java
 WORKDIR /
 
 RUN pip install conan \
-    && conan profile new default --detect && conan profile update settings.compiler.version=8 default
+    && conan profile new default --detect \
+    && conan profile update settings.compiler.version=8 default
 
 ENV ANDROID_SDK_ROOT=/Android/sdk
 RUN mkdir -p $ANDROID_SDK_ROOT
@@ -55,7 +56,8 @@ ENV CMAKE_VERSION=3.14.7 \
 ENV PATH=$PATH:$CMAKE_DIR/bin
 
 RUN wget -q https://dl.google.com/android/repository/android-ndk-r12b-linux-x86_64.zip \
-    && unzip -q android-ndk-r12b-linux-x86_64.zip && mv android-ndk-r12b $ANDROID_SDK_ROOT/ndk
+    && unzip -q android-ndk-r12b-linux-x86_64.zip \
+    && mv android-ndk-r12b $ANDROID_SDK_ROOT/ndk
 ENV ANDROID_NDK=$ANDROID_SDK_ROOT/ndk \
     ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk
 

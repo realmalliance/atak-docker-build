@@ -1,4 +1,4 @@
-# ATAK
+# atak-docker-build
 
 Build ATAK from source with one command.
 

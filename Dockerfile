@@ -40,7 +40,7 @@ RUN update-alternatives --set java $JAVA_HOME/bin/java
 
 WORKDIR /
 
-RUN pip install conan \
+RUN pip install conan==1.59.0 \
     && conan profile new default --detect \
     && conan profile update settings.compiler.version=8 default
 
